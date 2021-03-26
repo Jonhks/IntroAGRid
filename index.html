@@ -42,7 +42,7 @@
   </nav>
 
   <main>
-    <div class="container" id="balance">
+    <div class="container categorias" id="balance">
       <div class="tile is-ancestor">
         <div class="tile is-4 is-vertical is-parent">
           <div class="tile is-child box">
@@ -77,13 +77,71 @@
         <div class="tile is-parent">
           <div class="tile is-child box">
             <p class="title">Three</p>
+            <button id="btn-agregaroperacion" class="button is-info is-rounded">+ Nueva operación</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="container" id="categorias">
+    <div class="container categorias" id="categorias">
       <H1>Seccion de Categorias</H1>
     </div>
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <div class="box">
+         <h2>Nueva operación</h2>
+         <div class="field mt-6">
+           <label for="descripcion" class="label">Descripción</label>
+           <input id="descripcion" class="input" type="text" placeholder="Ingresa la descripción">
+         </div>
+         <div class="field">
+           <label for="monto" class="label">Monto</label>
+           <input id="monto" class="input" type="number" placeholder="Ingresa el monto">
+         </div>
+         <div class="field">
+          <label for="tipo" class="label">Tipo</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="tipo">
+                <option>Gasto</option>
+                <option>Ganancia</option>
+              </select>
+            </div>
+          </div>
+        </div>
+         <div class="field">
+          <label for="categoria" class="label">Categoría</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="categoria">
+                <option>Salidas</option>
+                <option>Educación</option>
+                <option>Transporte</option>
+                <option>Trabajo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fecha" class="label">Fecha</label>
+          <input id="input-fecha" class="input" type="date" name="label">         
+        </div>
+        <div class="field is-grouped is-grouped-right">
+          <p class="control">
+          </p>
+          <a class="button is-light">
+            Cancelar
+          </a>
+          <p class="control">
+            <a class="button is-primary">
+              Agregar
+            </a>
+          </p>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+    
   </main>
 
   <script src="./app.js"></script>
