@@ -33,7 +33,7 @@ let month = new Date().getMonth() + 1;
 const year = new Date().getFullYear();
 
 
-inputFecha.value = `${year}-${month < 10 ? '0' + month: month}-${day}`
+inputFecha.value = `${year}-${month < 10 ? '0' + month: month}-${day < 10 ? '0' + day: day}`
 
 
 
@@ -43,13 +43,15 @@ let operaciones = [];
 const pintarOperaciones = (operaciones) => {
   pintar.innerHTML = '';
   for (let index = 0; index < operaciones.length; index++) {
-    const caja = 
-    `<div>
+    const caja =
+    `<div id=${operaciones[index].id}>
       <span>${operaciones[index].descripcion}</span>
       <span>${operaciones[index].monto}</span>
       <span>${operaciones[index].tipo}</span>
       <span>${operaciones[index].categoria}</span>
       <span>${operaciones[index].fecha}</span>
+      <a>Editar</a>
+      <a>Eliminar</a>
     </div>`
     pintar.insertAdjacentHTML('beforeend', caja)
   }
@@ -57,8 +59,9 @@ const pintarOperaciones = (operaciones) => {
 
 
 btnAgregar.addEventListener('click', () => {
-  operaciones = JSON.parse(localStorage.getItem('operaciones'))
+  // operaciones = JSON.parse(localStorage.getItem('operaciones'))
   const nuevaOperacion = {
+    id: uuid.v4(),
     descripcion: descripcion.value,
     monto: monto.value,
     tipo: tipo.value,
@@ -71,11 +74,6 @@ btnAgregar.addEventListener('click', () => {
   pintarOperaciones(operacionesLocalStorage)
 })
 
-let operacionesLocalStorage = JSON.parse(localStorage.getItem('operaciones'))
-pintarOperaciones(operacionesLocalStorage)
-
-
-
-
-
+operaciones = JSON.parse(localStorage.getItem('operaciones'))
+pintarOperaciones(operaciones)
 
