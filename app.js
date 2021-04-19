@@ -4,6 +4,8 @@ const balance = document.getElementById('balance');
 const categorias = document.getElementById('categorias');
 const btnNuevaOperacion = document.getElementById('btn-agregaroperacion');
 const btnAgregar = document.getElementById('btn-agregar');
+const tipoBalance = document.getElementById('tipo-balance');
+const categoriasSelect = document.getElementById('categorias-select');
 
 
 const descripcion = document.getElementById('descripcion');
@@ -74,6 +76,31 @@ btnAgregar.addEventListener('click', () => {
   pintarOperaciones(operacionesLocalStorage)
 })
 
-operaciones = JSON.parse(localStorage.getItem('operaciones'))
+operaciones = JSON.parse(localStorage.getItem('operaciones')) ?? operaciones
 pintarOperaciones(operaciones)
 
+// tipoBalance.addEventListener('change', () => {
+//   const result = operaciones.filter(operacion => operacion.tipo === tipoBalance.value)
+//   tipoBalance.value === 'Todo' ? pintarOperaciones(operaciones) : pintarOperaciones(result)
+// })
+
+// categoriasSelect.addEventListener('change', () => {
+//  const result = operaciones.filter(operacion => operacion.categoria === categoriasSelect.value)
+//  categoriasSelect.value === 'Todo' ? pintarOperaciones(operaciones) : pintarOperaciones(result)
+// })
+
+
+const filtros = (e) => {
+  let atr = ''
+  if(e.target.id == 'tipo-balance'){
+    atr = 'tipo'
+  } else {
+    atr = 'categoria'
+  }
+
+  const result = operaciones.filter(operacion => operacion[atr] === e.target.value)
+  e.target.value === 'Todo' ? pintarOperaciones(operaciones) : pintarOperaciones(result)
+}
+
+tipoBalance.addEventListener('change', (e) => {filtros(e)})
+categoriasSelect.addEventListener('change', (e) => {filtros(e)})
