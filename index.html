@@ -34,7 +34,7 @@
         <a class="navbar-item" id="btn-categorias">
           Categorias
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" id="btn-reportes">
           Reportes
         </a>
       </div>
@@ -85,9 +85,16 @@
               </div>
             </div>
             <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+              <label for="ordernar-select">Ordenar por</label>
+              <div class="select">
+                <select id="ordernar-select">
+                  <option value="nuevo">Más reciente</option>
+                  <option value="viejo">Menos reciente</option>
+                  <option value="caro">Mayor Monto</option>
+                  <option value="barato">Menor Monto</option>
+                  <option value="a-z">A-Z</option>
+                  <option value="z-a">Z-A</option>
+                </select>
               </div>
             </div>
           </div>
@@ -101,9 +108,9 @@
         </div>
       </div>
     </div>
+
     <div class="container categorias" id="categorias">
       <H1>Seccion de Categorias</H1>
-    </div>
     <div class="columns">
       <div class="column is-8 is-offset-2">
         <div class="box">
@@ -159,7 +166,29 @@
         </div>
       </div>
     </div>
+  </div>
     
+    <!-- INICIO SECCION REPORTES -->
+    <section id="reports-section" class="">
+      <div class="box column is-6 is-offset-3 is-10-mobile is-offset-1-mobile px-5 py-4 fit-content">
+        <div class="field">
+          <p class="tile is-size-3 has-text-weight-bold">Reportes</p>
+          <div id="reportes-vista"></div>
+          <!-- <div class="column is-6 is-offset-3">
+            <figure class="image">
+              <img src="./img/reportes.svg">
+            </figure>
+          </div>
+          <div class="column is-align-items-center">
+            <p class="title is-size-4 is-size-6-mobile has-text-centered">Operaciones insuficientes</p>
+            <p class="subtitle is-size-6 is-size-7-mobile has-text-centered">Prueba agregando más operaciones</p>
+          </div> -->
+        </div>
+      </div>
+      </div>
+      </div> 
+    </section>
+    <!-- FIN SECCION REPORTES -->
     
   </main>
 
